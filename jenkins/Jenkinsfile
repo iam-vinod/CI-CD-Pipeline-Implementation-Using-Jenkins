@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE = 'iamvinod/my-app:latest'
+        DOCKER_IMAGE = 'my-app:latest' #change with your docker image name
     }
     stages {
         stage('Checkout') {
