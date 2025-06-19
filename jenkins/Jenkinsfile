@@ -1,15 +1,15 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE = 'my-app:latest' #change with your docker image name
+        DOCKER_IMAGE = 'iamvinod/my-jenkins-app:latest' // Replace with your Docker Hub username
     }
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-repo.git'
+                git 'https://github.com/iam-vinod/CI-CD-Pipeline-Implementation-Using-Jenkins.git'
             }
         }
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
                 sh "docker build -t ${DOCKER_IMAGE} ."
             }
@@ -21,10 +21,19 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
+        stage('Deploy to Kubernetes') {
             steps {
+                sh 'chmod +x scripts/deploy.sh'
                 sh './scripts/deploy.sh'
             }
+        }
+    }
+    post {
+        success {
+            echo '✅ Deployment successful!'
+        }
+        failure {
+            echo '❌ Deployment failed.'
         }
     }
 }
