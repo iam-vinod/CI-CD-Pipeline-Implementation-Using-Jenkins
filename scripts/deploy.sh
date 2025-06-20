@@ -2,11 +2,21 @@
 
 echo "📦 Starting Kubernetes Deployment..."
 
+# Export kubeconfig to point to jenkins user's config
+export KUBECONFIG=/var/lib/jenkins/.kube/config
+export MINIKUBE_HOME=/var/lib/jenkins
+
 echo "🔧 Applying deployment.yaml..."
-kubectl apply -f kubernetes/deployment.yaml || { echo "❌ Failed to apply deployment.yaml"; exit 1; }
+if ! kubectl apply -f k8s/deployment.yaml; then
+    echo "❌ Failed to apply deployment.yaml"
+    exit 1
+fi
 
 echo "🔧 Applying service.yaml..."
-kubectl apply -f kubernetes/service.yaml || { echo "❌ Failed to apply service.yaml"; exit 1; }
+if ! kubectl apply -f k8s/service.yaml; then
+    echo "❌ Failed to apply service.yaml"
+    exit 1
+fi
 
 echo "📊 Current pods status:"
 kubectl get pods
