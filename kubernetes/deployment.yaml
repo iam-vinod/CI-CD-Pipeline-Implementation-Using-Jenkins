@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: my-app:latest
+        image: iamvinod/my-jenkins-app:latest   # ✅ Fixed line
         ports:
         - containerPort: 5000
+
