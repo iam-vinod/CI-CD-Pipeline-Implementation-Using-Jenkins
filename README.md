@@ -34,6 +34,24 @@ This project demonstrates a complete CI/CD pipeline setup using **Jenkins**, **D
 ```
 ---
 
+🧰 Jenkins Setup
+Installed Jenkins
+
+Accessed via http://<EC2-IP>:8080
+
+🔐 Jenkins Configuration
+Installed:
+
+Git plugin
+
+Docker plugin
+
+Kubernetes CLI plugin
+
+Added Docker Hub credentials (docker-hub-credentials)
+
+---
+
 ## 📌 Pipeline Stages
 
 1. Jenkins pulls the code from GitHub.
