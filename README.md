@@ -35,11 +35,13 @@ This project demonstrates a complete CI/CD pipeline setup using **Jenkins**, **D
 ---
 
 🧰 Jenkins Setup
+
 Installed Jenkins
 
-Accessed via http://<EC2-IP>:8080
+                         Accessed via http://<EC2-IP>:8080
 
 🔐 Jenkins Configuration
+
 Installed:
 
 Git plugin
