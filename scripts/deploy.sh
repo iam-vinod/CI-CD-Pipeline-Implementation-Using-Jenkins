@@ -2,15 +2,12 @@
 
 echo "📦 Starting Kubernetes Deployment..."
 
-# Apply deployment
 echo "🔧 Applying deployment.yaml..."
-kubectl apply -f kubernetes/deployment.yaml --validate=false
+kubectl apply -f kubernetes/deployment.yaml || { echo "❌ Failed to apply deployment.yaml"; exit 1; }
 
-# Apply service
 echo "🔧 Applying service.yaml..."
-kubectl apply -f kubernetes/service.yaml --validate=false
+kubectl apply -f kubernetes/service.yaml || { echo "❌ Failed to apply service.yaml"; exit 1; }
 
-# Show current status
 echo "📊 Current pods status:"
 kubectl get pods
 
