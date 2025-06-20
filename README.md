@@ -48,7 +48,7 @@ This project demonstrates a complete CI/CD pipeline setup using **Jenkins**, **D
 
 Open your browser and go to:
 
-                             http://<your-ec2-public-ip>:30080
+http://<your-ec2-public-ip>:30080
 
 ---
 
