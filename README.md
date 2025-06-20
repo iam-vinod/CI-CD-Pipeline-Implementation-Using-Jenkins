@@ -1,27 +1,59 @@
-# CI-CD-Pipeline-Implementation-Using-Jenkins
+# CI/CD Pipeline Implementation Using Jenkins
 
-## Overview
-This project demonstrates a CI/CD pipeline using Jenkins, Docker, Kubernetes, and GitHub Actions.
+This project demonstrates a complete CI/CD pipeline setup using **Jenkins**, **Docker**, **GitHub**, and **Kubernetes (Minikube)**. The pipeline automatically builds a Docker image, pushes it to Docker Hub, and deploys it to a Kubernetes cluster.
 
-## Steps to Execute
-1. **Clone the Repository**
-   ```sh
-   git clone https://github.com/your-repo.git
-   cd CI-CD-Jenkins-Pipeline
-   ```
-2. **Setup Jenkins**
-   - Install required plugins (Pipeline, Docker, Kubernetes CLI)
-   - Configure Jenkins pipeline to use this repository
-3. **Run the Jenkins Pipeline**
-   - Navigate to Jenkins and start the pipeline job
-4. **Verify Deployment**
-   ```sh
-   kubectl get pods
-   kubectl get svc
-   ```
-   - Access the service using `minikube service my-app-service --url`
+---
 
-## Technologies Used
-- Jenkins
-- Docker
-- Kubernetes
+## 🚀 Tech Stack
+
+- Jenkins – Continuous Integration
+- Docker – Containerization
+- GitHub – Source Code Management
+- Docker Hub – Image Registry
+- Kubernetes (Minikube) – Container Orchestration
+- Flask – Python Web App
+
+---
+
+## 📁 Project Structure
+
+#CI-CD-Pipeline-Implementation-Using-Jenkins/
+├── app/
+│ └── app.py
+├── kubernetes/
+│ ├── deployment.yaml
+│ └── service.yaml
+├── scripts/
+│ └── deploy.sh
+├── jenkins/
+│ └── Jenkinsfile
+├── Dockerfile
+├── requirements.txt
+└── README.md
+---
+
+## 📌 Pipeline Stages
+
+1. Jenkins pulls the code from GitHub.
+2. Builds the Docker image from the Dockerfile.
+3. Pushes the image to Docker Hub.
+4. Executes a deployment script that applies Kubernetes manifests.
+5. Exposes the app via a NodePort service.
+
+---
+
+---
+
+## 🌍 Accessing the App
+
+Open your browser and go to:
+
+http://<your-ec2-public-ip>:30080
+
+---
+
+🧹 Cleanup
+minikube stop
+minikube delete
+
+---
