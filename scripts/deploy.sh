@@ -2,10 +2,6 @@
 
 echo "📦 Starting Kubernetes Deployment..."
 
-# Use Jenkins user's kubeconfig and minikube home
-export KUBECONFIG=/var/lib/jenkins/.kube/config
-export MINIKUBE_HOME=/var/lib/jenkins/.minikube
-
 echo "🔧 Applying deployment.yaml..."
 kubectl apply -f k8s/deployment.yaml || { echo "❌ Failed to apply deployment.yaml"; exit 1; }
 

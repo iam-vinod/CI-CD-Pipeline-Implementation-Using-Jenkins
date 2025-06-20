@@ -3,18 +3,19 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'iamvinod/my-jenkins-app:latest'
+        KUBECONFIG = '/var/lib/jenkins/.kube/config'
+        MINIKUBE_HOME = '/var/lib/jenkins/.minikube'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/iam-vinod/CI-CD-Pipeline-Implementation-Using-Jenkins.git'
+                git 'https://github.com/iam-vinod/CI-CD-Pipeline-Implementation-Using-Jenkins.git'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                // Now Dockerfile is in root, and context is full repo
                 sh "docker build -t ${DOCKER_IMAGE} -f Dockerfile ."
             }
         }
@@ -36,11 +37,11 @@ pipeline {
     }
 
     post {
-        success {
-            echo '✅ Deployment successful!'
-        }
         failure {
             echo '❌ Deployment failed.'
+        }
+        success {
+            echo '✅ Deployment succeeded.'
         }
     }
 }
