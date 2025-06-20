@@ -17,6 +17,7 @@ This project demonstrates a complete CI/CD pipeline setup using **Jenkins**, **D
 
 ## 📁 Project Structure
 
+```
 #CI-CD-Pipeline-Implementation-Using-Jenkins/
 ├── app/
 │ └── app.py
@@ -30,6 +31,7 @@ This project demonstrates a complete CI/CD pipeline setup using **Jenkins**, **D
 ├── Dockerfile
 ├── requirements.txt
 └── README.md
+```
 ---
 
 ## 📌 Pipeline Stages
@@ -42,18 +44,18 @@ This project demonstrates a complete CI/CD pipeline setup using **Jenkins**, **D
 
 ---
 
----
-
 ## 🌍 Accessing the App
 
 Open your browser and go to:
 
-http://<your-ec2-public-ip>:30080
+                             http://<your-ec2-public-ip>:30080
 
 ---
 
 🧹 Cleanup
+
 minikube stop
+
 minikube delete
 
 ---
